@@ -1,38 +1,88 @@
 .App {
+  padding: 2rem 0;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+
+  list-style-type: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: rgb(73, 67, 59);
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.hospitalTable {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.patientList,
+.wardList {
+  margin: 2rem 0;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  border-collapse: collapse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+table td,
+table th {
+  border: 2px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+
+.wardInfo > p,
+.patientView > p {
+  font-size: 1.25rem;
+  padding: 0.5rem 0;
+  font-weight: 700;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: rgb(73, 67, 59);
+  border: none;
+  color: #ddd;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
 }
