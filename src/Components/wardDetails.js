@@ -1,7 +1,9 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
+import { deleteWards } from "../Slice/wardSlice";
 
 export default function WardDetails() {
+  const dispatch = useDispatch();
   const { allWards } = useSelector((state) => state.wards);
   const { wardId } = useParams();
 
@@ -17,8 +19,22 @@ export default function WardDetails() {
         <p>Specializations: {ward?.specializations}</p>
       </div>
       <div className="buttons">
-        <button className="wardBtn">Delete</button>
-        <button className="wardBtn">Edit</button>
+        <Link
+          className="wardBtn"
+          state={ward}
+          to={`/ward/wardEdit/${ward._id}`}
+        >
+          Edit
+        </Link>
+
+        <button
+          className="wardBtn"
+          onClick={() => {
+            dispatch(deleteWards(ward._id));
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
