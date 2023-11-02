@@ -1,7 +1,9 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { deletePatients } from "../Slice/patientSlice";
 
 export default function PatientDetails() {
+  const dispatch = useDispatch();
   const { patientId } = useParams();
   const { allPatients } = useSelector((state) => state.patients);
 
@@ -18,8 +20,21 @@ export default function PatientDetails() {
         <p>Assigned Ward: {patient.wardNumber}</p>
       </div>
       <div className="buttons">
-        <button className="wardBtn">Delete</button>
-        <button className="wardBtn">Edit</button>
+        <Link
+          className="wardBtn"
+          to={`/patient/patientEdit/${patientId}`}
+          state={patient}
+        >
+          Edit
+        </Link>
+        <button
+          className="wardBtn"
+          onClick={() => {
+            dispatch(deletePatients(patient._id));
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
