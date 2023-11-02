@@ -38,7 +38,7 @@ export const postPatients = createAsyncThunk(
 
 export const editPatients = createAsyncThunk(
   "patients/editPatients",
-  async (patientId, patientData) => {
+  async ({ patientId, patientData }) => {
     const response = await axios.post(
       `https://assignment21.rittikdaas.repl.co/patient/${patientId}`,
       patientData

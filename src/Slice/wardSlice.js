@@ -19,7 +19,7 @@ export const postWard = createAsyncThunk("wards/postWard", async (wardData) => {
 });
 export const editWard = createAsyncThunk(
   "ward/editWard",
-  async (wardId, wardData) => {
+  async ({ wardId, wardData }) => {
     const response = await axios.post(
       `https://assignment21.rittikdaas.repl.co/ward/${wardId}`,
       wardData
