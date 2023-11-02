@@ -5,6 +5,8 @@ import PatientPage from "./Pages/patient";
 import WardPage from "./Pages/ward";
 import WardDetails from "./Components/wardDetails";
 import PatientDetails from "./Components/patientDetails";
+import WardEdit from "./Components/wardEdit";
+import PatientEdit from "./Components/patientEdit";
 
 function App() {
   return (
@@ -31,6 +33,13 @@ function App() {
         <Route path="/patient" element={<PatientPage />} />
         <Route path="/ward/:wardId" element={<WardDetails />} />
         <Route path="/patient/:patientId" element={<PatientDetails />} />
+        <Route path="/ward/wardEdit" element={<WardEdit />} />
+        <Route path="/ward/wardEdit/:wardId" element={<WardEdit />} />
+        <Route path="/patient/patientEdit" element={<PatientEdit />} />
+        <Route
+          path="/patient/patientEdit/:patientId"
+          element={<PatientEdit />}
+        />
       </Routes>
     </div>
   );
