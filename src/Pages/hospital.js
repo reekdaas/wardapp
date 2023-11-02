@@ -8,7 +8,7 @@ export default function Hospital() {
   const { allWards } = useSelector((state) => state.wards);
 
   const state = useSelector((state) => state.hospitals);
-  console.log(state);
+  // console.log(state);
 
   useEffect(() => {
     const noOfPatients = allPatients.length;
